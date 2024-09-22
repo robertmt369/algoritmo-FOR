@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <label>Escolha a tabuada:</label>
+    <select  id="input_tabuada">
+        <option value="2">Tabuada do 2</option>
+        <option value="3">Tabuada do 3</option>
+        <option value="4">Tabuada do 4</option>
+        <option value="5">Tabuada do 5</option>
+        <option value="6">Tabuada do 6</option>
+        <option value="7">Tabuada do 7</option>
+        <option value="8">Tabuada do 8</option>
+        <option value="9">Tabuada do 9</option>
+
+    </select>
+    <br><br>
+    <label>Até que número deve ser construída a tabuada?</label><br>
+    <input type="number"  id="input_limite">
+    <br><br>
+    <button onclick="verTabuada()">
+        Ver tabuada
+
+    </button>
+    <br><br>
+    <div id="div_resultado"></div>
+    
+</body>
+</html>
+<script>
+    function verTabuada(){
+        const tabuada = input_tabuada.value
+        const limite = Number(input_limite.value)
+
+         div_resultado.innerHTML = ""
+
+         if(limite && limite > 0){
+            for(var f = 1; f <= limite; f++){
+                div_resultado.innerHTML = `${tabuada} * ${f} = `
+            }
+         }  else {div_resultado.innerHTML = 'Por favor, insira um número válido.<br>'}
+
+
+
+
+
+
+    }
+
+</script>

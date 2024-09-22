@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somar Múltiplos</title>
+</head>
+<body>
+    <h1>Calculadora de Múltiplos</h1>
+    <label>Insira um número positivo (limite da contagem):</label><br>
+    <input type="number" id="input_limite"><br>
+    <br>
+    <label>Insira um segundo número (divisível entre 1 e o limite):</label><br>
+    <input type="number" id="input_divisor"><br>
+    <br>
+    <button onclick="somarMultiplos()">
+        Somar Números
+
+    </button>
+    <br>
+    <h2>Múltiplos:</h2>
+    <div id="div_resultado"></div>
+
+    <script>
+        function somarMultiplos() {
+            const limite = Number(input_limite.value);
+            const divisor = Number(input_divisor.value);
+             div_resultado.innerHTML = '';
+             soma = 0;
+
+            if (limite <= 0) {
+                alert('Por favor, insira um número positivo como limite.');
+                return;
+            }
+
+            if (divisor < 1 || divisor > limite || isNaN(divisor)) {
+                alert('Por favor, insira um número válido entre 1 e o limite.');
+                return;
+            }
+
+            for (let i = 1; i <= limite; i++) {
+                if (i % divisor === 0) {
+                    div_resultado.innerHTML += `${i}<br>`;
+                    soma += i;
+                }
+            }
+
+            div_resultado.innerHTML += `Soma dos Múltiplos: ${soma}<br>`;
+            ;
+        }
+    </script>
+</body>
+</html>

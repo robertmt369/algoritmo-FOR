@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisores de um Número</title>
+</head>
+<body>
+    <h1>Calculadora de Divisores</h1>
+    <label>Insira um número entre 0 e 100:</label><br>
+    <input type="number" id="input_numero" ><br>
+    <button onclick="verDivisores()">
+        Ver Divisores
+
+    </button>
+<br>
+    <h2>Divisores do Número:</h2>
+    <pre id="div_resultado"></pre>
+
+    <script>
+        function verDivisores() {
+            const numero = Number(input_numero.value)
+            div_resultado.innerHTML = '';
+            var contadorDivisores = 0;
+
+            if (numero < 0 || numero > 100 || isNaN(numero)) {
+                div_resultado.innerHTML = 'Por favor, insira um número válido entre 0 e 100.';
+            } else {
+                div_resultado.innerHTML += `Divisores do Número ${numero}:\n`;
+                for (var i = 1; i <= numero; i++) {
+                    if (numero % i === 0) {
+                        div_resultado.innerHTML += `${i}\n`;
+                        contadorDivisores++
+
+                    } 
+                }  if(contadorDivisores = 2){
+                    div_resultado.innerHTML += `\nO número ${numero} é um número primo.`;
+                }
+            }
+
+           
+        }
+    </script>
+</body>
+</html>

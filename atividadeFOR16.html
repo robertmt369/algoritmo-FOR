@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somar Números Pares</title>
+</head>
+<body>
+    <h1>Calculadora de Soma dos Números Pares</h1>
+    <label for="numero">Insira um número entre 10 e 500:</label><br>
+    <input type="number" id="input_numero"><br>
+    <br>
+    <button onclick="somarPares()">
+        Somar Pares
+
+    </button>
+    <br>
+    <h2>Números Pares:</h2>
+    <pre id="div_resultado"></pre>
+
+    <script>
+        function somarPares() {
+            const numero = Number(input_numero.value)
+             div_resultado.innerHTML = '';
+            var soma = 0;
+
+            if (numero < 10 || numero > 500 || isNaN(numero)) {
+                alert('Por favor, insira um número válido entre 10 e 500.');
+                return;
+            }
+
+            for (var i = 1; i <= numero; i++) {
+                if (i % 2 === 0) {
+                    div_resultado.innerHTML += `${i}<br>`;
+                    soma += i;
+                }
+            }
+
+            div_resultado.innerHTML += `A soma dos pares: ${soma}<br>`;
+            
+        }
+    </script>
+</body>
+</html>

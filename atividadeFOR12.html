@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhar Grana</title>
+    <style>
+        .estrela {
+            width: 30px; /* Tamanho da imagem da estrela */
+            height: 19px;
+            vertical-align: middle; /* Alinha a estrela com o texto */
+        }
+    </style>
+</head>
+<body>
+    <h1>Acompanhar Seus Depósitos</h1>
+    <label>Quantos depósitos você fez?</label><br>
+    <input type="number" id="input_qtdDepositos"><br>
+    <br>
+    <label>Valor de cada depósito:</label><br>
+    <input type="number" id="input_valorDeposito"><br>
+    <br>
+    <button onclick="acompanharGrana()">Acompanhar grana</button>
+
+    <div id="div_resultado"></div>
+
+    <script>
+        function acompanharGrana() {
+            const qtdDepositos = Number(input_qtdDepositos.value)
+            const valorDeposito = Number(input_valorDeposito.value)
+            const estrelaImg = '<img src="estrela.jpg" class="estrela" alt="estrela">';
+
+            var resultado = '';
+            var totalGuardado = 0;
+            div_resultado.innerHTML = ""
+
+            for (var i = 1; i <= qtdDepositos; i++) {
+                totalGuardado += valorDeposito;
+                if(i % 3 == 0) {        // adiciona 1% do total a cada 3 depósitos
+                    totalGuardado *= 1.01; 
+                    bonus = estrelaImg;
+                }
+                div_resultado.innerHTML += `${i}º Mês: R$ ${totalGuardado} ${estrelaImg}<br>`; 
+            } 
+                // exibir o total guardado
+            div_resultado.innerHTML += `Total guardado: R$ ${totalGuardado}<br>`;
+
+           
+
+           
+        }
+    </script>
+</body>
+</html>

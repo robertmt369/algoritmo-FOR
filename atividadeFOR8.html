@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantidade de Coca-Cola</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #garrafinhas {
+            margin-top: 20px;
+        }
+        .garrafinha {
+            display: inline-block;
+            width: 50px;
+            height: 100px;
+            background-color: #C72A29; /* Cor da Coca-Cola */
+            margin: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quantas "Coca-Cola" você já bebeu?</h1>
+    <label for="quantidade">Informe a quantidade:</label><br>
+    <input type="number" id="quantidade" min="0" required><br>
+    <br><br>
+    <button onclick="verQuantidade()">Ver a quantidade</button>
+<br>
+    <div id="garrafinhas"></div>
+
+    <script>
+        function verQuantidade() {
+            const quantidade = parseInt(document.getElementById("quantidade").value);
+            const garrafinhasDiv = document.getElementById("garrafinhas");
+            garrafinhasDiv.innerHTML = ''; // Limpa as garrafinhas anteriores
+
+            for (let i = 0; i < quantidade; i++) {
+                const garrafinha = document.createElement("div");
+                garrafinha.className = "garrafinha";
+                garrafinhasDiv.appendChild(garrafinha);
+            }
+        }
+    </script>
+</body>
+</html>

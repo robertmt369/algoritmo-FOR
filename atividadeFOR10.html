@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhar Grana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Para manter a formatação */
+        }
+    </style>
+</head>
+<body>
+    <h1>Acompanhar Seus Depósitos</h1>
+    <label>Quantos depósitos você fez?</label><br>
+    <input type="number" id="input_qtdDepositos"><br>
+    <br>
+    <label>Valor de cada depósito:</label><br>
+    <input type="number" id="input_valorDeposito"><br>
+    <br>
+    <button onclick="acompanharGrana()">Acompanhar grana</button>
+
+    <div id="div_resultado"></div>
+
+    <script>
+        function acompanharGrana() {
+            const qtdDepositos = Number(input_qtdDepositos.value)
+            const valorDeposito = Number(input_valorDeposito.value)
+            var resultado = '';
+            var totalGuardado = 0;
+
+            for (var i = 1; i <= qtdDepositos; i++) {
+                totalGuardado += valorDeposito;
+                div_resultado.innerHTML += `${i}º Mês: R$ ${totalGuardado}<br>`;
+            }
+
+            resultado += `Total guardado: R$ ${totalGuardado}<br>`;
+
+           
+        }
+    </script>
+</body>
+</html>

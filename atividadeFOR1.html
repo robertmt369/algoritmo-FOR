@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Quantas voltas dará na corrida?</label><br>
+    <input type="number" id="input_voltas_corrida">
+    <br><br>
+    <button onclick="iniciarCorrida()">
+        Iniciar corrida!
+    </button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function iniciarCorrida(){
+        const voltas = Number(input_voltas_corrida.value)
+        div_resultado.innerHTML = ""
+
+        if(voltas && voltas > 0){
+            for(var v = 1; v <= voltas; v++){
+                div_resultado.innerHTML += `Carro dando a ${v} volta<br>`
+
+            }
+        } div_resultado.innerHTML += 'Corrida finalizada!<br>'
+        
+
+
+    }
+
+</script>

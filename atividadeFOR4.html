@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contador de Idade</h1>
+    <label for="idade">Digite sua idade:</label>
+    <input type="number" id="idade" onkeyup="contarIdade()" min="0">
+
+    <div class="resultado" id="resultado"></div>
+
+    <script>
+        function faseDaVida(idade) {
+            if (idade <= 4) return "Primeira Infância";
+            else if (idade <= 6) return "Pré-escolar";
+            else if (idade <= 10) return "Segunda Infância";
+            else if (idade <= 18) return "Adolescência";
+            else if (idade <= 50) return "Adulto";
+            else if (idade <= 100) return "Melhor idade";
+            else return "Matusalém";
+        }
+
+        function contarIdade() {
+            const idadeInput = document.getElementById("idade").value;
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = "";
+
+            for (let i = 0; i <= idadeInput; i++) {
+                const fase = faseDaVida(i);
+                resultadoDiv.innerHTML += `${i} anos (${fase})<br>`;
+            }
+        }
+    </script>
+
+</body>
+</html>

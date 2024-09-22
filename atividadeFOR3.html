@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>De quantos em quantos dias você faz musculação?</label><br>
+    <input type="number" id="input_frequencia"><br>
+    <br>
+    <button onclick="exibirRotinaMensal()">
+        Exibir rotina mensal
+
+    </button>
+    <br>
+    <div id="div_resultado"></div>
+    
+</body>
+</html>
+<script>
+    function exibirRotinaMensal(){
+        const frequencia = Number(input_frequencia.value)
+        div_resultado.innerHTML = ""
+    
+    if(frequencia && frequencia > 0){
+        for(var dia = 1; dia <= 30; dia++){
+            
+        }
+    } if(dia % frequencia == 1){
+        div_resultado.innerHTML = `Dia ${dia} - musculação`
+
+    } else {div_resultado.innerHTML = `Comer, dormir etc.`}
+    
+    
+    
+    }
+    
+
+    
+
+
+
+
+
+
+</script>

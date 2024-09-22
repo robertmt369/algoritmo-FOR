@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><h1>Simulação de carona🚗💨</h1>
+    <label>Quantas pessoa vão entrar no carro?</label><br>
+    <input type="number" id="input_qtdPessoas"><br>
+    <br>
+    <button onclick="partiuCarona()">
+        #Partiu carona
+
+    </button>
+    <br>
+    <div id="div_resultado"></div>
+    
+</body>
+</html>
+<script>
+    function partiuCarona(){
+        const qtdPessoas = Number(input_qtdPessoas.value)
+        div_resultado.innerHTML = ""
+
+        if(qtdPessoas && qtdPessoas > 0){
+            for(var i = 1; i <= qtdPessoas; i+=1){
+                if(i == 1){
+                    div_resultado.innerHTML += 'Entrou o 1º passageiro (que é o(a) motorista)<br>'
+
+                } else if(i <=5){
+                    div_resultado.innerHTML += `Entrou o ${i}º passageiro<br>`
+
+                } else{
+                    div_resultado.innerHTML += `O ${i} terá que esperar<br>`
+                }
+                
+            } 
+        }
+        
+
+    }
+
+
+
+
+
+</script>

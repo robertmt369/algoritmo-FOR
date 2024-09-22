@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Divisibilidade</title>
+</head>
+<body>
+    <h1>Contador de Divisibilidade</h1>
+
+    <label>Insira o limite inferior (maior que 1):</label><br>
+    <input type="number" id="input_limiteInferior"><br>
+    
+    <label>Insira o limite superior (menor que 100 e maior que o limite inferior):</label><br>
+    <input type="number" id="input_limiteSuperior"><br>
+    <br>
+    <label>Insira um número para testar a divisibilidade (entre 3 e 10):</label><br>
+    <input type="number" id="input_divisor"><br>
+
+    <button onclick="contarDivisiveis()">
+        Contar
+
+    </button>
+    <br>
+    <h2>Números Divisíveis:</h2>
+    <div id="div_resultado"></div>
+
+    <script>
+        function contarDivisiveis() {
+            const limiteInferior = Number(input_limiteInferior.value);
+            const limiteSuperior = Number(input_limiteSuperior.value);
+            const divisor = Number(input_divisor.value);
+             div_resultado.innerHTML = '';
+            var numerosDivisiveis = [];
+            var soma = 0;
+
+            // Validações
+            if (limiteInferior <= 1) {
+                alert('O limite inferior deve ser maior que 1.');
+                return;
+            }
+            if (limiteSuperior >= 100 || limiteSuperior <= limiteInferior) {
+                alert('O limite superior deve ser menor que 100 e maior que o limite inferior.');
+                return;
+            }
+            if (divisor < 3 || divisor > 10) {
+                alert('O número para testar a divisibilidade deve estar entre 3 e 10.');
+                return;
+            }
+
+            // Encontrar números divisíveis
+            for (let i = limiteInferior; i <= limiteSuperior; i++) {
+                if (i % divisor === 0) {
+                    numerosDivisiveis.push(i);
+                    soma += i;
+                }
+            }
+
+            // Exibir resultados
+            if (numerosDivisiveis.length > 0) {
+                div_resultado.innerHTML += numerosDivisiveis.join(', ') + '\n';
+                const quantidade = numerosDivisiveis.length;
+                const media = soma / quantidade;
+                const maior = Math.max(...numerosDivisiveis);
+                const menor = Math.min(...numerosDivisiveis);
+
+                div_resultado.innerHTML += `<br>quantidade total de números exibidos: ${quantidade}<br>`;
+                div_resultado.innerHTML  += `somatória dos números exibidos: ${soma}<br>`;
+                div_resultado.innerHTML  += `média dos númros exibidos: ${media.toFixed(2)}<br>`;
+                div_resultado.innerHTML  += `maior número exibido: ${maior}<br>`;
+                div_resultado.innerHTML  += `menor número exibido: ${menor}<br>`;
+            } else {
+                div_resultado.innerHTML  = 'Nenhum número divisível encontrado.';
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
